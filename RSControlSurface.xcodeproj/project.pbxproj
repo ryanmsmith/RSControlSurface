@@ -1,0 +1,376 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3025E0BA1557F786003C1842 /* alStripe.png in Resources */ = {isa = PBXBuildFile; fileRef = 3025E0B81557F786003C1842 /* alStripe.png */; };
+		3025E0BB1557F786003C1842 /* surface.png in Resources */ = {isa = PBXBuildFile; fileRef = 3025E0B91557F786003C1842 /* surface.png */; };
+		3025E0BD1557FB85003C1842 /* leather.png in Resources */ = {isa = PBXBuildFile; fileRef = 3025E0BC1557FB85003C1842 /* leather.png */; };
+		3025E0C415581A4F003C1842 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3025E0C2155819FF003C1842 /* QuartzCore.framework */; };
+		3030FD10155570240033D1ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3030FD0F155570240033D1ED /* UIKit.framework */; };
+		3030FD12155570240033D1ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3030FD11155570240033D1ED /* Foundation.framework */; };
+		3030FD14155570240033D1ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3030FD13155570240033D1ED /* CoreGraphics.framework */; };
+		3030FD1A155570240033D1ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3030FD18155570240033D1ED /* InfoPlist.strings */; };
+		3030FD1C155570240033D1ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3030FD1B155570240033D1ED /* main.m */; };
+		3030FD20155570240033D1ED /* RSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3030FD1F155570240033D1ED /* RSAppDelegate.m */; };
+		3030FD23155570240033D1ED /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3030FD22155570240033D1ED /* RSViewController.m */; };
+		3030FD2E155571A90033D1ED /* RSControlSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 3030FD2D155571A90033D1ED /* RSControlSurface.m */; };
+		3058BD20155F42470021A99D /* RSGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3058BD1F155F42470021A99D /* RSGauge.m */; };
+		306D2FA11560902100DD5E8C /* GaugeBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2F9B1560902100DD5E8C /* GaugeBack.png */; };
+		306D2FA21560902100DD5E8C /* GaugeBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2F9C1560902100DD5E8C /* GaugeBack@2x.png */; };
+		306D2FA31560902100DD5E8C /* GaugeFront.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2F9D1560902100DD5E8C /* GaugeFront.png */; };
+		306D2FA41560902100DD5E8C /* GaugeFront@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2F9E1560902100DD5E8C /* GaugeFront@2x.png */; };
+		306D2FA51560902100DD5E8C /* GaugeLevel.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2F9F1560902100DD5E8C /* GaugeLevel.png */; };
+		306D2FA61560902100DD5E8C /* GaugeLevel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2FA01560902100DD5E8C /* GaugeLevel@2x.png */; };
+		306D2FA8156091E000DD5E8C /* controlSurfaceIcon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2FA7156091E000DD5E8C /* controlSurfaceIcon-72.png */; };
+		307AC68C155AA5B900234190 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 307AC68B155AA5B900234190 /* display.png */; };
+		30B114DA155C9FFA003BF46E /* RSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B114D9155C9FFA003BF46E /* RSLabel.m */; };
+		30BF940C155D6B130063271F /* controlSurfaceIcon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 30BF940B155D6B130063271F /* controlSurfaceIcon-144.png */; };
+		30BF940D155D7CFE0063271F /* controlSurfaceIcon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 30BF9409155D6B080063271F /* controlSurfaceIcon-114.png */; };
+		30CD424B155BF1B200246252 /* touchGlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 30CD424A155BF1B200246252 /* touchGlow.png */; };
+		30CD425E155C4CDD00246252 /* chevrons.png in Resources */ = {isa = PBXBuildFile; fileRef = 30CD425D155C4CDD00246252 /* chevrons.png */; };
+		30CD4265155C685800246252 /* leather@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30CD4264155C685800246252 /* leather@2x.png */; };
+		30CD4268155C68D300246252 /* alStripe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30CD4266155C68D300246252 /* alStripe@2x.png */; };
+		30CD4269155C68D300246252 /* display@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30CD4267155C68D300246252 /* display@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3025E0B81557F786003C1842 /* alStripe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alStripe.png; sourceTree = "<group>"; };
+		3025E0B91557F786003C1842 /* surface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surface.png; sourceTree = "<group>"; };
+		3025E0BC1557FB85003C1842 /* leather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leather.png; sourceTree = "<group>"; };
+		3025E0C2155819FF003C1842 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3030FD0B155570240033D1ED /* RSControlSurface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSControlSurface.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3030FD0F155570240033D1ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3030FD11155570240033D1ED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3030FD13155570240033D1ED /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3030FD17155570240033D1ED /* RSControlSurface-Info.plist */ = {isa = PBXFileReference; path = "RSControlSurface-Info.plist"; sourceTree = "<group>"; };
+		3030FD19155570240033D1ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3030FD1B155570240033D1ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3030FD1D155570240033D1ED /* RSControlSurface-Prefix.pch */ = {isa = PBXFileReference; path = "RSControlSurface-Prefix.pch"; sourceTree = "<group>"; };
+		3030FD1E155570240033D1ED /* RSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSAppDelegate.h; sourceTree = "<group>"; };
+		3030FD1F155570240033D1ED /* RSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSAppDelegate.m; sourceTree = "<group>"; };
+		3030FD21155570240033D1ED /* RSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSViewController.h; sourceTree = "<group>"; };
+		3030FD22155570240033D1ED /* RSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSViewController.m; sourceTree = "<group>"; };
+		3030FD2C155571A90033D1ED /* RSControlSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSControlSurface.h; sourceTree = "<group>"; };
+		3030FD2D155571A90033D1ED /* RSControlSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSControlSurface.m; sourceTree = "<group>"; };
+		3058BD1E155F42470021A99D /* RSGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSGauge.h; sourceTree = "<group>"; };
+		3058BD1F155F42470021A99D /* RSGauge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGauge.m; sourceTree = "<group>"; };
+		306D2F9B1560902100DD5E8C /* GaugeBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GaugeBack.png; sourceTree = "<group>"; };
+		306D2F9C1560902100DD5E8C /* GaugeBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GaugeBack@2x.png"; sourceTree = "<group>"; };
+		306D2F9D1560902100DD5E8C /* GaugeFront.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GaugeFront.png; sourceTree = "<group>"; };
+		306D2F9E1560902100DD5E8C /* GaugeFront@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GaugeFront@2x.png"; sourceTree = "<group>"; };
+		306D2F9F1560902100DD5E8C /* GaugeLevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GaugeLevel.png; sourceTree = "<group>"; };
+		306D2FA01560902100DD5E8C /* GaugeLevel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GaugeLevel@2x.png"; sourceTree = "<group>"; };
+		306D2FA7156091E000DD5E8C /* controlSurfaceIcon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controlSurfaceIcon-72.png"; sourceTree = "<group>"; };
+		307AC68B155AA5B900234190 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
+		30B114D8155C9FFA003BF46E /* RSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLabel.h; sourceTree = "<group>"; };
+		30B114D9155C9FFA003BF46E /* RSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLabel.m; sourceTree = "<group>"; };
+		30BF9409155D6B080063271F /* controlSurfaceIcon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controlSurfaceIcon-114.png"; sourceTree = "<group>"; };
+		30BF940B155D6B130063271F /* controlSurfaceIcon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controlSurfaceIcon-144.png"; sourceTree = "<group>"; };
+		30CD424A155BF1B200246252 /* touchGlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touchGlow.png; sourceTree = "<group>"; };
+		30CD425D155C4CDD00246252 /* chevrons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevrons.png; sourceTree = "<group>"; };
+		30CD4264155C685800246252 /* leather@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leather@2x.png"; sourceTree = "<group>"; };
+		30CD4266155C68D300246252 /* alStripe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alStripe@2x.png"; sourceTree = "<group>"; };
+		30CD4267155C68D300246252 /* display@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "display@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3030FD08155570240033D1ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3025E0C415581A4F003C1842 /* QuartzCore.framework in Frameworks */,
+				3030FD10155570240033D1ED /* UIKit.framework in Frameworks */,
+				3030FD12155570240033D1ED /* Foundation.framework in Frameworks */,
+				3030FD14155570240033D1ED /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3025E0B61557F77A003C1842 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				306D2F9B1560902100DD5E8C /* GaugeBack.png */,
+				306D2F9C1560902100DD5E8C /* GaugeBack@2x.png */,
+				306D2F9D1560902100DD5E8C /* GaugeFront.png */,
+				306D2F9E1560902100DD5E8C /* GaugeFront@2x.png */,
+				306D2F9F1560902100DD5E8C /* GaugeLevel.png */,
+				306D2FA01560902100DD5E8C /* GaugeLevel@2x.png */,
+				30CD4266155C68D300246252 /* alStripe@2x.png */,
+				30CD4267155C68D300246252 /* display@2x.png */,
+				30CD4264155C685800246252 /* leather@2x.png */,
+				30CD425D155C4CDD00246252 /* chevrons.png */,
+				30CD424A155BF1B200246252 /* touchGlow.png */,
+				307AC68B155AA5B900234190 /* display.png */,
+				3025E0BC1557FB85003C1842 /* leather.png */,
+				3025E0B81557F786003C1842 /* alStripe.png */,
+				3025E0B91557F786003C1842 /* surface.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		3030FD00155570240033D1ED = {
+			isa = PBXGroup;
+			children = (
+				306D2FA7156091E000DD5E8C /* controlSurfaceIcon-72.png */,
+				30BF940B155D6B130063271F /* controlSurfaceIcon-144.png */,
+				30BF9409155D6B080063271F /* controlSurfaceIcon-114.png */,
+				3030FD15155570240033D1ED /* ControlSurface */,
+				3030FD0E155570240033D1ED /* Frameworks */,
+				3030FD0C155570240033D1ED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3030FD0C155570240033D1ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3030FD0B155570240033D1ED /* RSControlSurface.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3030FD0E155570240033D1ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3025E0C2155819FF003C1842 /* QuartzCore.framework */,
+				3030FD0F155570240033D1ED /* UIKit.framework */,
+				3030FD11155570240033D1ED /* Foundation.framework */,
+				3030FD13155570240033D1ED /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3030FD15155570240033D1ED /* ControlSurface */ = {
+			isa = PBXGroup;
+			children = (
+				3025E0B61557F77A003C1842 /* Assets */,
+				3030FD1E155570240033D1ED /* RSAppDelegate.h */,
+				3030FD1F155570240033D1ED /* RSAppDelegate.m */,
+				3030FD21155570240033D1ED /* RSViewController.h */,
+				3030FD22155570240033D1ED /* RSViewController.m */,
+				3030FD2C155571A90033D1ED /* RSControlSurface.h */,
+				3030FD2D155571A90033D1ED /* RSControlSurface.m */,
+				30B114D8155C9FFA003BF46E /* RSLabel.h */,
+				30B114D9155C9FFA003BF46E /* RSLabel.m */,
+				3058BD1E155F42470021A99D /* RSGauge.h */,
+				3058BD1F155F42470021A99D /* RSGauge.m */,
+				3030FD16155570240033D1ED /* Supporting Files */,
+			);
+			path = ControlSurface;
+			sourceTree = "<group>";
+		};
+		3030FD16155570240033D1ED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3030FD17155570240033D1ED /* RSControlSurface-Info.plist */,
+				3030FD18155570240033D1ED /* InfoPlist.strings */,
+				3030FD1B155570240033D1ED /* main.m */,
+				3030FD1D155570240033D1ED /* RSControlSurface-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3030FD0A155570240033D1ED /* RSControlSurface */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3030FD29155570240033D1ED /* Build configuration list for PBXNativeTarget "RSControlSurface" */;
+			buildPhases = (
+				3030FD07155570240033D1ED /* Sources */,
+				3030FD08155570240033D1ED /* Frameworks */,
+				3030FD09155570240033D1ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RSControlSurface;
+			productName = ControlSurface;
+			productReference = 3030FD0B155570240033D1ED /* RSControlSurface.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3030FD02155570240033D1ED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RS;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "indiePixel Studios";
+			};
+			buildConfigurationList = 3030FD05155570240033D1ED /* Build configuration list for PBXProject "RSControlSurface" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3030FD00155570240033D1ED;
+			productRefGroup = 3030FD0C155570240033D1ED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3030FD0A155570240033D1ED /* RSControlSurface */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3030FD09155570240033D1ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3030FD1A155570240033D1ED /* InfoPlist.strings in Resources */,
+				3025E0BA1557F786003C1842 /* alStripe.png in Resources */,
+				3025E0BB1557F786003C1842 /* surface.png in Resources */,
+				3025E0BD1557FB85003C1842 /* leather.png in Resources */,
+				307AC68C155AA5B900234190 /* display.png in Resources */,
+				30CD424B155BF1B200246252 /* touchGlow.png in Resources */,
+				30CD425E155C4CDD00246252 /* chevrons.png in Resources */,
+				30CD4265155C685800246252 /* leather@2x.png in Resources */,
+				30CD4268155C68D300246252 /* alStripe@2x.png in Resources */,
+				30CD4269155C68D300246252 /* display@2x.png in Resources */,
+				30BF940C155D6B130063271F /* controlSurfaceIcon-144.png in Resources */,
+				30BF940D155D7CFE0063271F /* controlSurfaceIcon-114.png in Resources */,
+				306D2FA11560902100DD5E8C /* GaugeBack.png in Resources */,
+				306D2FA21560902100DD5E8C /* GaugeBack@2x.png in Resources */,
+				306D2FA31560902100DD5E8C /* GaugeFront.png in Resources */,
+				306D2FA41560902100DD5E8C /* GaugeFront@2x.png in Resources */,
+				306D2FA51560902100DD5E8C /* GaugeLevel.png in Resources */,
+				306D2FA61560902100DD5E8C /* GaugeLevel@2x.png in Resources */,
+				306D2FA8156091E000DD5E8C /* controlSurfaceIcon-72.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3030FD07155570240033D1ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3030FD1C155570240033D1ED /* main.m in Sources */,
+				3030FD20155570240033D1ED /* RSAppDelegate.m in Sources */,
+				3030FD23155570240033D1ED /* RSViewController.m in Sources */,
+				3030FD2E155571A90033D1ED /* RSControlSurface.m in Sources */,
+				30B114DA155C9FFA003BF46E /* RSLabel.m in Sources */,
+				3058BD20155F42470021A99D /* RSGauge.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3030FD18155570240033D1ED /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3030FD19155570240033D1ED /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3030FD27155570240033D1ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3030FD28155570240033D1ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3030FD2A155570240033D1ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ControlSurface/RSControlSurface-Prefix.pch";
+				INFOPLIST_FILE = "ControlSurface/RSControlSurface-Info.plist";
+				PRODUCT_NAME = RSControlSurface;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3030FD2B155570240033D1ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ControlSurface/RSControlSurface-Prefix.pch";
+				INFOPLIST_FILE = "ControlSurface/RSControlSurface-Info.plist";
+				PRODUCT_NAME = RSControlSurface;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3030FD05155570240033D1ED /* Build configuration list for PBXProject "RSControlSurface" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3030FD27155570240033D1ED /* Debug */,
+				3030FD28155570240033D1ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3030FD29155570240033D1ED /* Build configuration list for PBXNativeTarget "RSControlSurface" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3030FD2A155570240033D1ED /* Debug */,
+				3030FD2B155570240033D1ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3030FD02155570240033D1ED /* Project object */;
+}
