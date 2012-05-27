@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "RSControlSurface.h"
-#import "RSGauge.h"
 
 @class RSControlSurface;
 
@@ -20,8 +19,8 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *titleLabel2;
 @property (nonatomic, strong) UILabel *titleLabel3;
-@property (nonatomic, strong) RSGauge *gauge;
-@property (nonatomic, strong) RSGauge *gauge2;
-@property (nonatomic, strong) RSGauge *gauge3;
+@property (nonatomic, strong) NSMutableArray *valueLabels;
+@property (nonatomic, strong) NSMutableArray *titleLabels;
+@property (nonatomic, strong) NSMutableArray *controlSurfaces;
 
 @end

@@ -22,17 +22,23 @@
 @synthesize titleLabel2 = _titleLabel2;
 @synthesize titleLabel3 = _titleLabel3;
 @synthesize controlAreaView = _controlAreaView;
-@synthesize gauge = _gauge;
-@synthesize gauge2 = _gauge2;
-@synthesize gauge3 = _gauge3;
+@synthesize valueLabels = _valueLabels;
+@synthesize titleLabels = _titleLabels;
+@synthesize controlSurfaces = _controlSurfaces;
 
 - (id)init
 {
     if ((self = [super initWithNibName:nil bundle:nil]))
     {
+        self.controlSurfaces = [[NSMutableArray alloc] init];
+        self.valueLabels = [[NSMutableArray alloc] init];
+        self.titleLabels = [[NSMutableArray alloc] init];
+        
         [self.view setBackgroundColor:[UIColor colorWithWhite:0.05 alpha:1]];
         [self.view setUserInteractionEnabled:YES];
         [self.view setExclusiveTouch:NO];
+        
+        
         
         UIImageView *bgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         NSLog(@"bgView.y:%f", bgView.frame.origin.y);
@@ -51,7 +57,7 @@
         
         RSControlSurface *controlSurface = [[RSControlSurface alloc] initWithTitle:@"Winds" initialValue:0 minValue:-300 maxValue:300 stepValue:10 minInterval:1 withNumberOfDecimals:0 andUnits:@"kts"];
         
-        [controlSurface setFrame:CGRectMake(0, 4, self.view.frame.size.width, 100)];
+        [controlSurface setFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
         [controlSurface setTag:1];
         [controlSurface setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         [controlSurface setDelegate:self];
@@ -59,7 +65,7 @@
         
         RSControlSurface *controlSurface2 = [[RSControlSurface alloc] initWithTitle:@"Weight" initialValue:35000 minValue:10000 maxValue:50000 stepValue:1000 minInterval:100 withNumberOfDecimals:0 andUnits:nil];
         
-        [controlSurface2 setFrame:CGRectMake(0, 108, self.view.frame.size.width, 100)];
+        [controlSurface2 setFrame:CGRectMake(0, 100, self.view.frame.size.width, 100)];
         [controlSurface2 setTag:2];
         [controlSurface2 setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         [controlSurface2 setDelegate:self];
@@ -67,28 +73,33 @@
         
         RSControlSurface *controlSurface3 = [[RSControlSurface alloc] initWithTitle:@"Yaw" initialValue:0 minValue:-45 maxValue:45 stepValue:1 minInterval:0.1 withNumberOfDecimals:1 andUnits:nil];
         
-        [controlSurface3 setFrame:CGRectMake(0, 212, self.view.frame.size.width, 100)];
+        [controlSurface3 setFrame:CGRectMake(0, 200, self.view.frame.size.width, 100)];
         [controlSurface3 setTag:3];
         [controlSurface3 setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         [controlSurface3 setDelegate:self];
         [self.controlAreaView addSubview:controlSurface3];
         
-        UIImage *stripe = [UIImage imageNamed:@"alStripe.png"];
+        [self.controlSurfaces addObject:controlSurface];
+        [self.controlSurfaces addObject:controlSurface2];
+        [self.controlSurfaces addObject:controlSurface3];
         
-        UIImageView *stripeView1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 8)];    
-        UIImageView *stripeView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 104, self.view.frame.size.width, 8)];
-        UIImageView *stripeView3 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 208, self.view.frame.size.width, 8)];
-        UIImageView *stripeView4 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 312, self.view.frame.size.width, 8)];
+        
+        UIImage *stripe = [[UIImage imageNamed:@"alStripe.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+        
+        UIImageView *stripeView1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, -4, self.view.frame.size.width, 8)];    
+        UIImageView *stripeView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 96, self.view.frame.size.width, 8)];
+        UIImageView *stripeView3 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 196, self.view.frame.size.width, 8)];
+        UIImageView *stripeView4 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 296, self.view.frame.size.width, 8)];
         
         [stripeView1 setImage:stripe];
         [stripeView2 setImage:stripe];
         [stripeView3 setImage:stripe];
         [stripeView4 setImage:stripe];
         
-        [stripeView1 setContentMode:UIViewContentModeTop];
-        [stripeView2 setContentMode:UIViewContentModeTop];
-        [stripeView3 setContentMode:UIViewContentModeTop];
-        [stripeView4 setContentMode:UIViewContentModeTop];
+        [stripeView1 setContentMode:UIViewContentModeScaleToFill];
+        [stripeView2 setContentMode:UIViewContentModeScaleToFill];
+        [stripeView3 setContentMode:UIViewContentModeScaleToFill];
+        [stripeView4 setContentMode:UIViewContentModeScaleToFill];
         
         [self.controlAreaView addSubview:stripeView1];
         [self.controlAreaView addSubview:stripeView2];
@@ -107,110 +118,35 @@
         [self.view addSubview:displayView];
         [displayView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin];
         
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (displayView.frame.size.width-40)/3, 20)];
-        [self.label setFont:[UIFont systemFontOfSize:16]];
-        [self.label setTextColor:[UIColor whiteColor]];
-        [self.label setTextAlignment:UITextAlignmentCenter];
-        [self.label setBackgroundColor:[UIColor clearColor]];
-        [self.label setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth];
-        [self.label setText:controlSurface.valueText];
-        [displayView addSubview:self.label];
-        [self.label setCenter:CGPointMake(displayView.frame.size.width/6, 40)];    
-        [[self.label layer] setShadowColor:[[UIColor whiteColor] CGColor]];
-        [[self.label layer] setShadowOffset:CGSizeMake(0, 0)];
-        [[self.label layer] setShadowRadius:3];
-        [[self.label layer] setShadowOpacity:0.5];
+        int maxLabels = [self.controlSurfaces count];
         
-        self.label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (displayView.frame.size.width-40)/3, 20)];
-        [self.label2 setFont:[UIFont systemFontOfSize:16]];
-        [self.label2 setTextColor:[UIColor whiteColor]];
-        [self.label2 setTextAlignment:UITextAlignmentCenter];
-        [self.label2 setBackgroundColor:[UIColor clearColor]];
-        [self.label2 setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth];
-        [self.label2 setText:controlSurface2.valueText];
-        [displayView addSubview:self.label2];    
-        [self.label2 setCenter:CGPointMake(3*displayView.frame.size.width/6, 40)];   
-        [[self.label2 layer] setShadowColor:[[UIColor whiteColor] CGColor]];
-        [[self.label2 layer] setShadowOffset:CGSizeMake(0, 0)];
-        [[self.label2 layer] setShadowRadius:3];
-        [[self.label2 layer] setShadowOpacity:0.5];
-        
-        self.label3 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (displayView.frame.size.width-40)/3, 20)];
-        [self.label3 setFont:[UIFont systemFontOfSize:16]];
-        [self.label3 setTextColor:[UIColor whiteColor]];
-        [self.label3 setTextAlignment:UITextAlignmentCenter];
-        [self.label3 setBackgroundColor:[UIColor clearColor]];
-        [self.label3 setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth];
-        [self.label3 setText:controlSurface3.valueText];
-        [displayView addSubview:self.label3];
-        [self.label3 setCenter:CGPointMake(5*displayView.frame.size.width/6, 40)];   
-        [[self.label3 layer] setShadowColor:[[UIColor whiteColor] CGColor]];
-        [[self.label3 layer] setShadowOffset:CGSizeMake(0, 0)];
-        [[self.label3 layer] setShadowRadius:3];
-        [[self.label3 layer] setShadowOpacity:0.5];
-        
-        
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (displayView.frame.size.width-40)/3, 10)];
-        [self.titleLabel setFont:[UIFont boldSystemFontOfSize:10]];
-        [self.titleLabel setTextColor:[UIColor whiteColor]];
-        [self.titleLabel setTextAlignment:UITextAlignmentCenter];
-        [self.titleLabel setBackgroundColor:[UIColor clearColor]];
-        [self.titleLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth];
-        [self.titleLabel setText:controlSurface.titleText];
-        [displayView addSubview:self.titleLabel];
-        [self.titleLabel setCenter:CGPointMake(displayView.frame.size.width/6, 20)];
-        
-        self.titleLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (displayView.frame.size.width-40)/3, 10)];
-        [self.titleLabel2 setFont:[UIFont boldSystemFontOfSize:10]];
-        [self.titleLabel2 setTextColor:[UIColor whiteColor]];
-        [self.titleLabel2 setTextAlignment:UITextAlignmentCenter];
-        [self.titleLabel2 setBackgroundColor:[UIColor clearColor]];
-        [self.titleLabel2 setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth];
-        [self.titleLabel2 setText:controlSurface2.titleText];
-        [displayView addSubview:self.titleLabel2];    
-        [self.titleLabel2 setCenter:CGPointMake(3*displayView.frame.size.width/6, 20)];
-        
-        self.titleLabel3 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (displayView.frame.size.width-40)/3, 10)];
-        [self.titleLabel3 setFont:[UIFont boldSystemFontOfSize:10]];
-        [self.titleLabel3 setTextColor:[UIColor whiteColor]];
-        [self.titleLabel3 setTextAlignment:UITextAlignmentCenter];
-        [self.titleLabel3 setBackgroundColor:[UIColor clearColor]];
-        [self.titleLabel3 setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth];
-        [self.titleLabel3 setText:controlSurface3.titleText];
-        [displayView addSubview:self.titleLabel3];
-        [self.titleLabel3 setCenter:CGPointMake(5*displayView.frame.size.width/6, 20)];
-        
-        float gaugeDiameter = self.view.frame.size.width/4; 
-        
-        BOOL includeGauges = NO;
-        
-        includeGauges = YES; // <- comment out this line to exclude gauge displays
-        
-        if (includeGauges)
+        for (int i=0; i<maxLabels; i++)
         {
-            self.gauge = [[RSGauge alloc] initWithFrame:CGRectMake(0, 0, gaugeDiameter, gaugeDiameter)];
-            [self.gauge setCenter:CGPointMake(self.view.frame.size.width/6, self.view.frame.size.height-gaugeDiameter/2)];
-            [self.gauge setMin:controlSurface.min];
-            [self.gauge setMax:controlSurface.max];
-            [self.gauge setCurrentValue:controlSurface.value];
-            [self.view addSubview:self.gauge]; 
-            [self.gauge setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, displayView.frame.size.width/maxLabels, 20)];
+            [label setFont:[UIFont systemFontOfSize:16]];
+            [label setTextColor:[UIColor whiteColor]];
+            [label setTextAlignment:UITextAlignmentCenter];
+            [label setBackgroundColor:[UIColor clearColor]];
+            [label setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth];
+            [label setText:[[self.controlSurfaces objectAtIndex:i] valueText]];
+            [label setCenter:CGPointMake((1+i*2)*displayView.frame.size.width/(2*maxLabels), 40)];    
+            [[label layer] setShadowColor:[[UIColor whiteColor] CGColor]];
+            [[label layer] setShadowOffset:CGSizeMake(0, 0)];
+            [[label layer] setShadowRadius:3];
+            [[label layer] setShadowOpacity:0.5];
+            [displayView addSubview:label];
+            [self.valueLabels addObject:label];
             
-            self.gauge2 = [[RSGauge alloc] initWithFrame:CGRectMake(0, 0, gaugeDiameter, gaugeDiameter)];
-            [self.gauge2 setCenter:CGPointMake(3*self.view.frame.size.width/6, self.view.frame.size.height-gaugeDiameter/2)];
-            [self.gauge2 setMin:controlSurface2.min];
-            [self.gauge2 setMax:controlSurface2.max];
-            [self.gauge2 setCurrentValue:controlSurface2.value];
-            [self.view addSubview:self.gauge2];
-            [self.gauge2 setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
-            
-            self.gauge3 = [[RSGauge alloc] initWithFrame:CGRectMake(0, 0, gaugeDiameter, gaugeDiameter)];
-            [self.gauge3 setCenter:CGPointMake(5*self.view.frame.size.width/6, self.view.frame.size.height-gaugeDiameter/2)];
-            [self.gauge3 setMin:controlSurface3.min];
-            [self.gauge3 setMax:controlSurface3.max];
-            [self.gauge3 setCurrentValue:controlSurface3.value];
-            [self.view addSubview:self.gauge3];
-            [self.gauge3 setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
+            UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, displayView.frame.size.width/maxLabels, 10)];
+            [titleLabel setFont:[UIFont boldSystemFontOfSize:10]];
+            [titleLabel setTextColor:[UIColor whiteColor]];
+            [titleLabel setTextAlignment:UITextAlignmentCenter];
+            [titleLabel setBackgroundColor:[UIColor clearColor]];
+            [titleLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth];
+            [titleLabel setText:[[self.controlSurfaces objectAtIndex:i] titleText]];
+            [titleLabel setCenter:CGPointMake((1+i*2)*displayView.frame.size.width/(2*maxLabels), 20)];
+            [displayView addSubview:titleLabel];
+            [self.titleLabels addObject:titleLabel];
         }
     }
     return self;
@@ -232,36 +168,12 @@
 
 - (void)controlSurface:(RSControlSurface *)controlSurface didChangeValue:(NSNumber *)value
 {
-    NSString *valueText = [controlSurface valueText];
-    NSString *titleText = [controlSurface titleText];
-    switch (controlSurface.tag) {
-        case 1:
-            [self.label setText:valueText];
-            [self.titleLabel setText:titleText];
-            if (self.gauge)
-            {
-                [self.gauge setGaugeLevel:[value floatValue]];
-            }
-            break;
-        case 2:
-            [self.label2 setText:valueText];
-            [self.titleLabel2 setText:titleText];
-            if (self.gauge2)
-            {
-                [self.gauge2 setGaugeLevel:[value floatValue]];
-            }
-            break;
-        case 3:
-            [self.label3 setText:valueText];
-            [self.titleLabel3 setText:titleText];
-            if (self.gauge3)
-            {
-                [self.gauge3 setGaugeLevel:[value floatValue]];
-            }
-            break;
-        default:
-            break;
-    }
+    NSString *unitText = [controlSurface units];
+    NSString *valueText = [NSString stringWithFormat:@"%@ %@", value, unitText];
+    int index = [self.controlSurfaces indexOfObject:controlSurface];
+    UILabel *label = [self.valueLabels objectAtIndex:index];
+    [label setText:valueText];
+    NSLog(@"controlSurface:%@ | label:%@ | value:%@ | valueText:%@", controlSurface, label, value, valueText);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
