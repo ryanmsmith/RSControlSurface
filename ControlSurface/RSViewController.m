@@ -79,7 +79,7 @@
         [self.view addSubview:self.controlAreaView];
         
         
-        RSControlSurface *controlSurface = [[RSControlSurface alloc] initWithTitle:@"Winds" initialValue:0 minValue:-300 maxValue:300 stepValue:10 minInterval:1 withNumberOfDecimals:0 andUnits:@"kts"];
+        RSControlSurface *controlSurface = [[RSControlSurface alloc] initWithTitle:@"Winds" initialValue:0 minValue:-300 maxValue:300 stepValue:10 minInterval:1 withDecimalPlaces:0 andUnits:@"kts"];
         
         [controlSurface setFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
         [controlSurface setTag:1];
@@ -87,7 +87,7 @@
         [controlSurface setDelegate:self];
         [self.controlAreaView addSubview:controlSurface];
         
-        RSControlSurface *controlSurface2 = [[RSControlSurface alloc] initWithTitle:@"Weight" initialValue:35000 minValue:10000 maxValue:50000 stepValue:1000 minInterval:100 withNumberOfDecimals:0 andUnits:nil];
+        RSControlSurface *controlSurface2 = [[RSControlSurface alloc] initWithTitle:@"Weight" initialValue:35000 minValue:10000 maxValue:50000 stepValue:1000 minInterval:100 withDecimalPlaces:0 andUnits:nil];
         
         [controlSurface2 setFrame:CGRectMake(0, 100, self.view.frame.size.width, 100)];
         [controlSurface2 setTag:2];
@@ -95,7 +95,7 @@
         [controlSurface2 setDelegate:self];
         [self.controlAreaView addSubview:controlSurface2];
         
-        RSControlSurface *controlSurface3 = [[RSControlSurface alloc] initWithTitle:@"Yaw" initialValue:0 minValue:-45 maxValue:45 stepValue:1 minInterval:0.1 withNumberOfDecimals:1 andUnits:nil];
+        RSControlSurface *controlSurface3 = [[RSControlSurface alloc] initWithTitle:@"Yaw" initialValue:0 minValue:-45 maxValue:45 stepValue:1 minInterval:0.1 withDecimalPlaces:1 andUnits:nil];
         
         [controlSurface3 setFrame:CGRectMake(0, 200, self.view.frame.size.width, 100)];
         [controlSurface3 setTag:3];

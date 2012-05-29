@@ -66,7 +66,14 @@ typedef enum
 @property (nonatomic, strong) UIView *upView;
 @property (nonatomic, strong) UIView *downView;
 
-- (id)initWithTitle:(NSString *)title initialValue:(float)initialValue minValue:(float)minValue maxValue:(float)maxValue stepValue:(float)stepValue minInterval:(float)minInterval withNumberOfDecimals:(int)decimals andUnits:(NSString *)units;
+- (id)initWithTitle:(NSString *)title 
+       initialValue:(float)initialValue 
+           minValue:(float)minValue 
+           maxValue:(float)maxValue 
+          stepValue:(float)stepValue 
+        minInterval:(float)minInterval 
+  withDecimalPlaces:(int)decimals 
+           andUnits:(NSString *)units;
 
 - (void)setCurrentValue:(float)val;
 - (void)setTitle:(NSString *)title;

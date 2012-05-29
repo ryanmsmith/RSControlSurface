@@ -73,7 +73,7 @@
 @synthesize touchStartX = _touchStartX;
 @synthesize style = _style;
 
-- (id)initWithTitle:(NSString *)title initialValue:(float)initialValue minValue:(float)minValue maxValue:(float)maxValue stepValue:(float)stepValue minInterval:(float)minInterval withNumberOfDecimals:(int)decimals andUnits:(NSString *)units
+- (id)initWithTitle:(NSString *)title initialValue:(float)initialValue minValue:(float)minValue maxValue:(float)maxValue stepValue:(float)stepValue minInterval:(float)minInterval withDecimalPlaces:(int)decimals andUnits:(NSString *)units
 {
     self = [super initWithFrame:CGRectMake(0, 0, 1000, 200)];
     if (self) {
