@@ -87,7 +87,7 @@
         [self setSensitivity:1000];
         [self setUnits:units ? units : @""];
         [self setBackgroundColor:[UIColor darkGrayColor]];
-        [self setupGraphics];
+        [self setSurfaceImage:[UIImage imageNamed:@"surface.png"]];
         [self setupGestureRecognizer];
         [self setupLabels];
         [self setCurrentValue:initialValue];
@@ -102,10 +102,9 @@
     return self;
 }
 
-- (void)setupGraphics
+- (void)setSurfaceImage:(UIImage *)surfaceImage
 {
     UIImageView *surfaceView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    UIImage *surfaceImage = [UIImage imageNamed:@"surface.png"];
     [surfaceView setImage:surfaceImage];
     [surfaceView setContentMode:UIViewContentModeTop];
     [surfaceView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];

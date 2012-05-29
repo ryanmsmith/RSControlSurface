@@ -75,6 +75,8 @@ typedef enum
   withDecimalPlaces:(int)decimals 
            andUnits:(NSString *)units;
 
+- (void)setSurfaceImage:(UIImage *)surfaceImage;
+
 - (void)setCurrentValue:(float)val;
 - (void)setTitle:(NSString *)title;
 - (NSString *)valueText;
