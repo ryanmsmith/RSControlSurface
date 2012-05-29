@@ -19,19 +19,11 @@
 		3030FD20155570240033D1ED /* RSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3030FD1F155570240033D1ED /* RSAppDelegate.m */; };
 		3030FD23155570240033D1ED /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3030FD22155570240033D1ED /* RSViewController.m */; };
 		3030FD2E155571A90033D1ED /* RSControlSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 3030FD2D155571A90033D1ED /* RSControlSurface.m */; };
-		3058BD20155F42470021A99D /* RSGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3058BD1F155F42470021A99D /* RSGauge.m */; };
-		306D2FA11560902100DD5E8C /* GaugeBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2F9B1560902100DD5E8C /* GaugeBack.png */; };
-		306D2FA21560902100DD5E8C /* GaugeBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2F9C1560902100DD5E8C /* GaugeBack@2x.png */; };
-		306D2FA31560902100DD5E8C /* GaugeFront.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2F9D1560902100DD5E8C /* GaugeFront.png */; };
-		306D2FA41560902100DD5E8C /* GaugeFront@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2F9E1560902100DD5E8C /* GaugeFront@2x.png */; };
-		306D2FA51560902100DD5E8C /* GaugeLevel.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2F9F1560902100DD5E8C /* GaugeLevel.png */; };
-		306D2FA61560902100DD5E8C /* GaugeLevel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2FA01560902100DD5E8C /* GaugeLevel@2x.png */; };
 		306D2FA8156091E000DD5E8C /* controlSurfaceIcon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 306D2FA7156091E000DD5E8C /* controlSurfaceIcon-72.png */; };
 		307AC68C155AA5B900234190 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 307AC68B155AA5B900234190 /* display.png */; };
 		30B114DA155C9FFA003BF46E /* RSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B114D9155C9FFA003BF46E /* RSLabel.m */; };
 		30BF940C155D6B130063271F /* controlSurfaceIcon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 30BF940B155D6B130063271F /* controlSurfaceIcon-144.png */; };
 		30BF940D155D7CFE0063271F /* controlSurfaceIcon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 30BF9409155D6B080063271F /* controlSurfaceIcon-114.png */; };
-		30CD424B155BF1B200246252 /* touchGlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 30CD424A155BF1B200246252 /* touchGlow.png */; };
 		30CD425E155C4CDD00246252 /* chevrons.png in Resources */ = {isa = PBXBuildFile; fileRef = 30CD425D155C4CDD00246252 /* chevrons.png */; };
 		30CD4265155C685800246252 /* leather@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30CD4264155C685800246252 /* leather@2x.png */; };
 		30CD4268155C68D300246252 /* alStripe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30CD4266155C68D300246252 /* alStripe@2x.png */; };
@@ -39,43 +31,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3025E0B81557F786003C1842 /* alStripe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alStripe.png; sourceTree = "<group>"; };
+		3025E0B81557F786003C1842 /* alStripe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alStripe.png; path = ControlSurface/alStripe.png; sourceTree = "<group>"; };
 		3025E0B91557F786003C1842 /* surface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surface.png; sourceTree = "<group>"; };
-		3025E0BC1557FB85003C1842 /* leather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leather.png; sourceTree = "<group>"; };
+		3025E0BC1557FB85003C1842 /* leather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leather.png; path = ControlSurface/leather.png; sourceTree = "<group>"; };
 		3025E0C2155819FF003C1842 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3030FD0B155570240033D1ED /* RSControlSurface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSControlSurface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3030FD0F155570240033D1ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3030FD11155570240033D1ED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3030FD13155570240033D1ED /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3030FD17155570240033D1ED /* RSControlSurface-Info.plist */ = {isa = PBXFileReference; path = "RSControlSurface-Info.plist"; sourceTree = "<group>"; };
+		3030FD17155570240033D1ED /* RSControlSurface-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RSControlSurface-Info.plist"; sourceTree = "<group>"; };
 		3030FD19155570240033D1ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3030FD1B155570240033D1ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3030FD1D155570240033D1ED /* RSControlSurface-Prefix.pch */ = {isa = PBXFileReference; path = "RSControlSurface-Prefix.pch"; sourceTree = "<group>"; };
-		3030FD1E155570240033D1ED /* RSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSAppDelegate.h; sourceTree = "<group>"; };
-		3030FD1F155570240033D1ED /* RSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSAppDelegate.m; sourceTree = "<group>"; };
-		3030FD21155570240033D1ED /* RSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSViewController.h; sourceTree = "<group>"; };
-		3030FD22155570240033D1ED /* RSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSViewController.m; sourceTree = "<group>"; };
+		3030FD1D155570240033D1ED /* RSControlSurface-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSControlSurface-Prefix.pch"; sourceTree = "<group>"; };
+		3030FD1E155570240033D1ED /* RSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RSAppDelegate.h; path = ControlSurface/RSAppDelegate.h; sourceTree = "<group>"; };
+		3030FD1F155570240033D1ED /* RSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RSAppDelegate.m; path = ControlSurface/RSAppDelegate.m; sourceTree = "<group>"; };
+		3030FD21155570240033D1ED /* RSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RSViewController.h; path = ControlSurface/RSViewController.h; sourceTree = "<group>"; };
+		3030FD22155570240033D1ED /* RSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RSViewController.m; path = ControlSurface/RSViewController.m; sourceTree = "<group>"; };
 		3030FD2C155571A90033D1ED /* RSControlSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSControlSurface.h; sourceTree = "<group>"; };
 		3030FD2D155571A90033D1ED /* RSControlSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSControlSurface.m; sourceTree = "<group>"; };
-		3058BD1E155F42470021A99D /* RSGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSGauge.h; sourceTree = "<group>"; };
-		3058BD1F155F42470021A99D /* RSGauge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGauge.m; sourceTree = "<group>"; };
-		306D2F9B1560902100DD5E8C /* GaugeBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GaugeBack.png; sourceTree = "<group>"; };
-		306D2F9C1560902100DD5E8C /* GaugeBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GaugeBack@2x.png"; sourceTree = "<group>"; };
-		306D2F9D1560902100DD5E8C /* GaugeFront.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GaugeFront.png; sourceTree = "<group>"; };
-		306D2F9E1560902100DD5E8C /* GaugeFront@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GaugeFront@2x.png"; sourceTree = "<group>"; };
-		306D2F9F1560902100DD5E8C /* GaugeLevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GaugeLevel.png; sourceTree = "<group>"; };
-		306D2FA01560902100DD5E8C /* GaugeLevel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GaugeLevel@2x.png"; sourceTree = "<group>"; };
 		306D2FA7156091E000DD5E8C /* controlSurfaceIcon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controlSurfaceIcon-72.png"; sourceTree = "<group>"; };
-		307AC68B155AA5B900234190 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
+		307AC68B155AA5B900234190 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = display.png; path = ControlSurface/display.png; sourceTree = "<group>"; };
 		30B114D8155C9FFA003BF46E /* RSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLabel.h; sourceTree = "<group>"; };
 		30B114D9155C9FFA003BF46E /* RSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLabel.m; sourceTree = "<group>"; };
 		30BF9409155D6B080063271F /* controlSurfaceIcon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controlSurfaceIcon-114.png"; sourceTree = "<group>"; };
 		30BF940B155D6B130063271F /* controlSurfaceIcon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controlSurfaceIcon-144.png"; sourceTree = "<group>"; };
-		30CD424A155BF1B200246252 /* touchGlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touchGlow.png; sourceTree = "<group>"; };
 		30CD425D155C4CDD00246252 /* chevrons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevrons.png; sourceTree = "<group>"; };
-		30CD4264155C685800246252 /* leather@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leather@2x.png"; sourceTree = "<group>"; };
-		30CD4266155C68D300246252 /* alStripe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alStripe@2x.png"; sourceTree = "<group>"; };
-		30CD4267155C68D300246252 /* display@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "display@2x.png"; sourceTree = "<group>"; };
+		30CD4264155C685800246252 /* leather@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "leather@2x.png"; path = "ControlSurface/leather@2x.png"; sourceTree = "<group>"; };
+		30CD4266155C68D300246252 /* alStripe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alStripe@2x.png"; path = "ControlSurface/alStripe@2x.png"; sourceTree = "<group>"; };
+		30CD4267155C68D300246252 /* display@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "display@2x.png"; path = "ControlSurface/display@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,20 +79,7 @@
 		3025E0B61557F77A003C1842 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				306D2F9B1560902100DD5E8C /* GaugeBack.png */,
-				306D2F9C1560902100DD5E8C /* GaugeBack@2x.png */,
-				306D2F9D1560902100DD5E8C /* GaugeFront.png */,
-				306D2F9E1560902100DD5E8C /* GaugeFront@2x.png */,
-				306D2F9F1560902100DD5E8C /* GaugeLevel.png */,
-				306D2FA01560902100DD5E8C /* GaugeLevel@2x.png */,
-				30CD4266155C68D300246252 /* alStripe@2x.png */,
-				30CD4267155C68D300246252 /* display@2x.png */,
-				30CD4264155C685800246252 /* leather@2x.png */,
 				30CD425D155C4CDD00246252 /* chevrons.png */,
-				30CD424A155BF1B200246252 /* touchGlow.png */,
-				307AC68B155AA5B900234190 /* display.png */,
-				3025E0BC1557FB85003C1842 /* leather.png */,
-				3025E0B81557F786003C1842 /* alStripe.png */,
 				3025E0B91557F786003C1842 /* surface.png */,
 			);
 			name = Assets;
@@ -118,9 +88,7 @@
 		3030FD00155570240033D1ED = {
 			isa = PBXGroup;
 			children = (
-				306D2FA7156091E000DD5E8C /* controlSurfaceIcon-72.png */,
-				30BF940B155D6B130063271F /* controlSurfaceIcon-144.png */,
-				30BF9409155D6B080063271F /* controlSurfaceIcon-114.png */,
+				94521CB915745F14008321CF /* Example App */,
 				3030FD15155570240033D1ED /* ControlSurface */,
 				3030FD0E155570240033D1ED /* Frameworks */,
 				3030FD0C155570240033D1ED /* Products */,
@@ -150,17 +118,10 @@
 			isa = PBXGroup;
 			children = (
 				3025E0B61557F77A003C1842 /* Assets */,
-				3030FD1E155570240033D1ED /* RSAppDelegate.h */,
-				3030FD1F155570240033D1ED /* RSAppDelegate.m */,
-				3030FD21155570240033D1ED /* RSViewController.h */,
-				3030FD22155570240033D1ED /* RSViewController.m */,
 				3030FD2C155571A90033D1ED /* RSControlSurface.h */,
 				3030FD2D155571A90033D1ED /* RSControlSurface.m */,
 				30B114D8155C9FFA003BF46E /* RSLabel.h */,
 				30B114D9155C9FFA003BF46E /* RSLabel.m */,
-				3058BD1E155F42470021A99D /* RSGauge.h */,
-				3058BD1F155F42470021A99D /* RSGauge.m */,
-				3030FD16155570240033D1ED /* Supporting Files */,
 			);
 			path = ControlSurface;
 			sourceTree = "<group>";
@@ -174,6 +135,60 @@
 				3030FD1D155570240033D1ED /* RSControlSurface-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = ControlSurface;
+			sourceTree = "<group>";
+		};
+		94521CB915745F14008321CF /* Example App */ = {
+			isa = PBXGroup;
+			children = (
+				94521CBE15745FED008321CF /* Icons */,
+				94521CBD15745F8E008321CF /* View Controller */,
+				94521CBC15745F7C008321CF /* App Delegate */,
+				94521CBB15745F1D008321CF /* Assets */,
+				3030FD16155570240033D1ED /* Supporting Files */,
+			);
+			name = "Example App";
+			sourceTree = "<group>";
+		};
+		94521CBB15745F1D008321CF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				30CD4264155C685800246252 /* leather@2x.png */,
+				3025E0BC1557FB85003C1842 /* leather.png */,
+				30CD4267155C68D300246252 /* display@2x.png */,
+				307AC68B155AA5B900234190 /* display.png */,
+				30CD4266155C68D300246252 /* alStripe@2x.png */,
+				3025E0B81557F786003C1842 /* alStripe.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		94521CBC15745F7C008321CF /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				3030FD1E155570240033D1ED /* RSAppDelegate.h */,
+				3030FD1F155570240033D1ED /* RSAppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		94521CBD15745F8E008321CF /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3030FD21155570240033D1ED /* RSViewController.h */,
+				3030FD22155570240033D1ED /* RSViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		94521CBE15745FED008321CF /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				306D2FA7156091E000DD5E8C /* controlSurfaceIcon-72.png */,
+				30BF940B155D6B130063271F /* controlSurfaceIcon-144.png */,
+				30BF9409155D6B080063271F /* controlSurfaceIcon-114.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,19 +248,12 @@
 				3025E0BB1557F786003C1842 /* surface.png in Resources */,
 				3025E0BD1557FB85003C1842 /* leather.png in Resources */,
 				307AC68C155AA5B900234190 /* display.png in Resources */,
-				30CD424B155BF1B200246252 /* touchGlow.png in Resources */,
 				30CD425E155C4CDD00246252 /* chevrons.png in Resources */,
 				30CD4265155C685800246252 /* leather@2x.png in Resources */,
 				30CD4268155C68D300246252 /* alStripe@2x.png in Resources */,
 				30CD4269155C68D300246252 /* display@2x.png in Resources */,
 				30BF940C155D6B130063271F /* controlSurfaceIcon-144.png in Resources */,
 				30BF940D155D7CFE0063271F /* controlSurfaceIcon-114.png in Resources */,
-				306D2FA11560902100DD5E8C /* GaugeBack.png in Resources */,
-				306D2FA21560902100DD5E8C /* GaugeBack@2x.png in Resources */,
-				306D2FA31560902100DD5E8C /* GaugeFront.png in Resources */,
-				306D2FA41560902100DD5E8C /* GaugeFront@2x.png in Resources */,
-				306D2FA51560902100DD5E8C /* GaugeLevel.png in Resources */,
-				306D2FA61560902100DD5E8C /* GaugeLevel@2x.png in Resources */,
 				306D2FA8156091E000DD5E8C /* controlSurfaceIcon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,7 +270,6 @@
 				3030FD23155570240033D1ED /* RSViewController.m in Sources */,
 				3030FD2E155571A90033D1ED /* RSControlSurface.m in Sources */,
 				30B114DA155C9FFA003BF46E /* RSLabel.m in Sources */,
-				3058BD20155F42470021A99D /* RSGauge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
