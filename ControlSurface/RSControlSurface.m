@@ -36,10 +36,10 @@
 
 @interface RSControlSurface()
 
-@property (nonatomic, strong) UITapGestureRecognizer *stepUpRecognizer;
-@property (nonatomic, strong) UITapGestureRecognizer *stepDownRecognizer;
-@property (nonatomic, strong) UILongPressGestureRecognizer *longPressUpRecognizer;
-@property (nonatomic, strong) UILongPressGestureRecognizer *longPressDownRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *incrementingStepperTapRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *decrementingStepperTapRecognizer;
+@property (nonatomic, strong) UILongPressGestureRecognizer *incrementingStepperLongPressRecognizer;
+@property (nonatomic, strong) UILongPressGestureRecognizer *decrementingStepperLongPressRecognizer;
 @property (nonatomic, strong) NSTimer *timer;
 @property (readwrite, assign) float intermediateValue;
 @property (readwrite, assign) float touchStartX;
@@ -62,14 +62,14 @@
 @synthesize numDecimals = _numDecimals;
 @synthesize sensitivity = _sensitivity;
 @synthesize units = _units;
-@synthesize stepUpRecognizer = _stepUpRecognizer;
-@synthesize stepDownRecognizer = _stepDownRecognizer;
-@synthesize longPressUpRecognizer = _longPressUpRecognizer;
-@synthesize longPressDownRecognizer = _longPressDownRecognizer;
+@synthesize incrementingStepperTapRecognizer = _incrementingStepperTapRecognizer;
+@synthesize decrementingStepperTapRecognizer = _decrementingStepperTapRecognizer;
+@synthesize incrementingStepperLongPressRecognizer = _incrementingStepperLongPressRecognizer;
+@synthesize decrementingStepperLongPressRecognizer = _decrementingStepperLongPressRecognizer;
 @synthesize timer = _timer;
 @synthesize intermediateValue = _intermediateValue;
-@synthesize upView = _upView;
-@synthesize downView = _downView;
+@synthesize incrementingStepperView = _incrementingStepperView;
+@synthesize decrementingStepperView = _decrementingStepperView;
 @synthesize touchStartX = _touchStartX;
 @synthesize style = _style;
 
@@ -89,6 +89,7 @@
         [self setBackgroundColor:[UIColor darkGrayColor]];
         [self setSurfaceImage:[UIImage imageNamed:@"surface.png"]];
         [self setupGestureRecognizer];
+        [self setStepperViewMirrorableImage:[UIImage imageNamed:@"chevrons.png"]];
         [self setupLabels];
         [self setCurrentValue:initialValue];
         [self setUserInteractionEnabled:YES];
@@ -109,6 +110,40 @@
     [surfaceView setContentMode:UIViewContentModeTop];
     [surfaceView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
     [self addSubview:surfaceView];
+}
+
+- (void)setStepperViewMirrorableImage:(UIImage *)image
+{
+    CGContextRef imageCtx = CGBitmapContextCreate(NULL, image.size.width, image.size.height, 8, 0, CGColorSpaceCreateDeviceRGB(), (kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst));
+    
+    CGContextTranslateCTM(imageCtx, image.size.width, 0);
+    CGContextScaleCTM(imageCtx, -1.0, 1.0);
+    CGContextDrawImage(imageCtx, CGRectMake(0, 0, image.size.width, image.size.height), image.CGImage);
+    CGImageRef mirroredImageRef = CGBitmapContextCreateImage(imageCtx);
+    CGContextRelease(imageCtx);
+    UIImage *mirroredImage = [UIImage imageWithCGImage:mirroredImageRef];
+    CGImageRelease(mirroredImageRef);
+    
+    [self setDecrementingStepperImage:mirroredImage];
+    [self setIncrementingStepperImage:image];
+}
+
+- (void)setDecrementingStepperImage:(UIImage *)image
+{
+    UIImageView *decrementingStepperImageView = [[UIImageView alloc] initWithImage:image];
+    [decrementingStepperImageView setContentMode:UIViewContentModeScaleAspectFit];
+    [decrementingStepperImageView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    [decrementingStepperImageView setFrame:CGRectMake(0, 0, self.decrementingStepperView.frame.size.width, self.decrementingStepperView.frame.size.height)];
+    [self.decrementingStepperView addSubview:decrementingStepperImageView];
+}
+
+- (void)setIncrementingStepperImage:(UIImage *)image
+{
+    UIImageView *incrementingStepperImageView = [[UIImageView alloc] initWithImage:image];
+    [incrementingStepperImageView setContentMode:UIViewContentModeScaleAspectFit];
+    [incrementingStepperImageView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    [incrementingStepperImageView setFrame:CGRectMake(0, 0, self.incrementingStepperView.frame.size.width, self.incrementingStepperView.frame.size.height)];
+    [self.incrementingStepperView addSubview:incrementingStepperImageView];
 }
 
 - (void)setupLabels
@@ -141,46 +176,30 @@
 {
     [self setMultipleTouchEnabled:NO];
     
-    self.stepDownRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFromRecognizer:)];
+    self.decrementingStepperTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFromRecognizer:)];
     
-    self.stepUpRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFromRecognizer:)];
+    self.incrementingStepperTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFromRecognizer:)];
     
-    self.longPressDownRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFromRecognizer:)];
-    self.longPressUpRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFromRecognizer:)];
+    self.decrementingStepperLongPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFromRecognizer:)];
+    self.incrementingStepperLongPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFromRecognizer:)];
     
-    self.downView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)];
-    [self.downView setBackgroundColor:[UIColor clearColor]];
-    [self.downView addGestureRecognizer:self.stepDownRecognizer];
-    [self.downView addGestureRecognizer:self.longPressDownRecognizer];
-    [self.downView setUserInteractionEnabled:YES];
-    [self.downView setExclusiveTouch:YES];
-    [self.downView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-    [self addSubview:self.downView];
+    self.decrementingStepperView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)];
+    [self.decrementingStepperView setBackgroundColor:[UIColor clearColor]];
+    [self.decrementingStepperView addGestureRecognizer:self.decrementingStepperTapRecognizer];
+    [self.decrementingStepperView addGestureRecognizer:self.decrementingStepperLongPressRecognizer];
+    [self.decrementingStepperView setUserInteractionEnabled:YES];
+    [self.decrementingStepperView setExclusiveTouch:YES];
+    [self.decrementingStepperView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    [self addSubview:self.decrementingStepperView];
     
-    UIImage *chevronLeft = [UIImage imageNamed:@"chevrons.png"];
-    UIImageView *chevronLeftView = [[UIImageView alloc] initWithImage:chevronLeft];
-    [chevronLeftView setContentMode:UIViewContentModeScaleAspectFit];
-    [chevronLeftView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-    [chevronLeftView setFrame:CGRectMake(0, 0, self.downView.frame.size.width, self.downView.frame.size.height)];
-    [chevronLeftView setTransform:CGAffineTransformMakeRotation(M_PI)];
-    [self.downView addSubview:chevronLeftView];
-    
-    self.upView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width-self.frame.size.height, 0, self.frame.size.height, self.frame.size.height)];
-    [self.upView setBackgroundColor:[UIColor clearColor]];
-    [self.upView addGestureRecognizer:self.stepUpRecognizer];
-    [self.upView addGestureRecognizer:self.longPressUpRecognizer];
-    [self.upView setUserInteractionEnabled:YES];
-    [self.upView setExclusiveTouch:YES];
-    [self.upView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-    [self addSubview:self.upView];
-    
-    UIImage *chevronRight = [UIImage imageNamed:@"chevrons.png"];
-    UIImageView *chevronRightView = [[UIImageView alloc] initWithImage:chevronRight];
-    [chevronRightView setContentMode:UIViewContentModeScaleAspectFit];
-    [chevronRightView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-    [chevronRightView setFrame:CGRectMake(0, 0, self.upView.frame.size.width, self.upView.frame.size.height)];
-    [self.upView addSubview:chevronRightView];
-    
+    self.incrementingStepperView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width-self.frame.size.height, 0, self.frame.size.height, self.frame.size.height)];
+    [self.incrementingStepperView setBackgroundColor:[UIColor clearColor]];
+    [self.incrementingStepperView addGestureRecognizer:self.incrementingStepperTapRecognizer];
+    [self.incrementingStepperView addGestureRecognizer:self.incrementingStepperLongPressRecognizer];
+    [self.incrementingStepperView setUserInteractionEnabled:YES];
+    [self.incrementingStepperView setExclusiveTouch:YES];
+    [self.incrementingStepperView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    [self addSubview:self.incrementingStepperView];
 }
 
 
@@ -218,7 +237,7 @@
 - (void)tapFromRecognizer:(id)sender
 {
     UITapGestureRecognizer *tapper = (UITapGestureRecognizer *)sender;
-    int direction = ([tapper isEqual:self.stepUpRecognizer]) ? 1 : -1;
+    int direction = ([tapper isEqual:self.incrementingStepperTapRecognizer]) ? 1 : -1;
     switch (tapper.state) 
     {    
         case UIGestureRecognizerStateBegan:
@@ -237,7 +256,7 @@
 
 - (void)longPressFromRecognizer:(id)sender
 {
-    int direction = ([sender isEqual:self.longPressUpRecognizer]) ? 1 : -1;
+    int direction = ([sender isEqual:self.incrementingStepperLongPressRecognizer]) ? 1 : -1;
 
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:direction] forKey:@"direction"];
     UILongPressGestureRecognizer *recognizer = (UILongPressGestureRecognizer *)sender;
@@ -348,8 +367,8 @@
 - (void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
-    [self.upView setFrame:CGRectMake(self.frame.size.width-self.frame.size.height, 0, self.frame.size.height, self.frame.size.height)];
-    [self.downView setFrame:CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)];
+    [self.incrementingStepperView setFrame:CGRectMake(self.frame.size.width-self.frame.size.height, 0, self.frame.size.height, self.frame.size.height)];
+    [self.decrementingStepperView setFrame:CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)];
     self.padding = self.frame.size.height/10.0;
     
     [self layoutWithStyle:self.style];

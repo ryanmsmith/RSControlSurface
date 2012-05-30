@@ -63,8 +63,8 @@ typedef enum
 @property (nonatomic, strong) NSString *units;
 @property (readwrite, assign) kControlSurfaceStyle style;
 
-@property (nonatomic, strong) UIView *upView;
-@property (nonatomic, strong) UIView *downView;
+@property (nonatomic, strong) UIView *incrementingStepperView;
+@property (nonatomic, strong) UIView *decrementingStepperView;
 
 - (id)initWithTitle:(NSString *)title 
        initialValue:(float)initialValue 
@@ -76,6 +76,9 @@ typedef enum
            andUnits:(NSString *)units;
 
 - (void)setSurfaceImage:(UIImage *)surfaceImage;
+- (void)setStepperViewMirrorableImage:(UIImage *)mirrorableImage;
+- (void)setDecrementingStepperImage:(UIImage *)image;
+- (void)setIncrementingStepperImage:(UIImage *)image;
 
 - (void)setCurrentValue:(float)val;
 - (void)setTitle:(NSString *)title;
