@@ -60,7 +60,6 @@
 @synthesize minInterval = _minInterval;
 @synthesize maxInterval = _maxInterval;
 @synthesize numDecimals = _numDecimals;
-@synthesize sensitivity = _sensitivity;
 @synthesize units = _units;
 @synthesize incrementingStepperTapRecognizer = _incrementingStepperTapRecognizer;
 @synthesize decrementingStepperTapRecognizer = _decrementingStepperTapRecognizer;
@@ -84,7 +83,6 @@
         [self setMinInterval:minInterval];
         [self setMaxInterval:stepValue];
         [self setNumDecimals:decimals];
-        [self setSensitivity:1000];
         [self setUnits:units ? units : @""];
         [self setBackgroundColor:[UIColor darkGrayColor]];
         [self setSurfaceImage:[UIImage imageNamed:@"surface.png"]];

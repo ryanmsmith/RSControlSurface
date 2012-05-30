@@ -59,7 +59,6 @@ typedef enum
 @property (readwrite, assign) float minInterval;
 @property (readwrite, assign) float maxInterval;
 @property (readwrite, assign) int numDecimals;
-@property (readwrite, assign) float sensitivity;
 @property (nonatomic, strong) NSString *units;
 @property (readwrite, assign) kControlSurfaceStyle style;
 
@@ -75,9 +74,18 @@ typedef enum
   withDecimalPlaces:(int)decimals 
            andUnits:(NSString *)units;
 
+// creates and sets a UIImageView as an equally-sized sub-view of the main view with supplied UIImage.
 - (void)setSurfaceImage:(UIImage *)surfaceImage;
+
+// creates a UIImage that is mirrored about the vertical axis to the original 
+// image, then calls -setIncrementingStepperImage:image with the original 
+// image and -setDecrementingStepperImage:image with the mirrored image
 - (void)setStepperViewMirrorableImage:(UIImage *)mirrorableImage;
+
+// creates and sets a UIImageView as an equally-size sub-view of the decrementingStepperView
 - (void)setDecrementingStepperImage:(UIImage *)image;
+
+// creates and sets a UIImageView as an equally-size sub-view of the incrementingStepperView
 - (void)setIncrementingStepperImage:(UIImage *)image;
 
 - (void)setCurrentValue:(float)val;
